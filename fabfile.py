@@ -43,11 +43,12 @@ def create_vm(name, ip):
         vm_uuid = json.loads(json_text)['active']['default']
         # change network mode
         run("vboxmanage modifyvm %s --nic2 bridged --bridgeadapter2 eth0" % vm_uuid)
+        vagrant("up")
 
 
 def cloud_machine():
     env.hosts = ['127.0.0.1']
-    env.user = ''
+    env.user = 'javi'
     env.password = ''
 
 
